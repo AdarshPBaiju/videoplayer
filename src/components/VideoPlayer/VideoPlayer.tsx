@@ -159,9 +159,11 @@ export default function VideoPlayer({
   };
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (!isPlayed) return;
       switch (event.key) {
         case " ":
         case "k":
+          event.preventDefault();
           togglePlay();
           break;
         case "m":
@@ -179,12 +181,6 @@ export default function VideoPlayer({
         case "c":
           toggleSubtitles();
           break;
-        case ",":
-          if (playbackSpeed > 0.25) setPlaybackSpeed((prev) => prev - 0.25);
-          break;
-        case ".":
-          if (playbackSpeed < 2) setPlaybackSpeed((prev) => prev + 0.25);
-          break;
         default:
           break;
       }
@@ -195,7 +191,7 @@ export default function VideoPlayer({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPlaying, isMuted, isFullscreen]);
 
-  const handleSubtitleError = (error) => {
+  const handleSubtitleError = (error: unknown) => {
     console.error("Subtitle load error:", error);
   };
 
@@ -277,7 +273,7 @@ export default function VideoPlayer({
           className={`absolute bottom-0 left-4 right-4
                       px-4 py-4 transition-all duration-300 rounded-md transform
                       ${
-                        showControls
+                        showControls || !isPlaying
                           ? "translate-y-0 opacity-100"
                           : "translate-y-4 opacity-0"
                       }`}

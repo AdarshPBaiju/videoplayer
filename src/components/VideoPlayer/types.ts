@@ -1,5 +1,6 @@
 export interface VideoPlayerProps {
-  url: string;
-  subtitles?: string;
-  [key: string]: any;
+  url: string;            
+  subtitleUrl?: string;        
+  thumbnail?: string;        
+  [key: string]: unknown;
 }

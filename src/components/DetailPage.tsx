@@ -11,24 +11,24 @@ const DetailPage = () => {
   }
 
   return (
-    <div className="p-0 sm:p-6 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen flex flex-col items-center">
+    <div className="p-4 sm:p-6 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 min-h-screen flex flex-col items-center">
       <div className="text-center mb-8 max-w-3xl mx-auto">
-        <h1 className="text-white text-4xl font-extrabold mb-4 leading-tight">
+        <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4 leading-tight">
           {video.title}
         </h1>
-        <p className="text-gray-400 font-light text-lg">
+        <p className="text-gray-400 font-light text-base sm:text-lg">
           Enjoy watching this amazing video!
         </p>
       </div>
       <div className="relative w-full max-w-4xl shadow-2xl rounded-xl overflow-hidden transform transition duration-300">
-        <VideoPlayer 
+        <VideoPlayer
           url={video.url} 
           subtitleUrl={video.subtitleUrl}
           thumbnail={video.thumbnail}
         />
       </div>
-      <div className="mt-10 text-gray-300 text-center px-4 max-w-xl">
-        <p className="leading-relaxed text-lg">
+      <div className="mt-8 text-gray-300 text-center px-4 max-w-xl">
+        <p className="leading-relaxed text-base sm:text-lg">
           Dive into the immersive experience provided by this video, with customizable options and high-quality subtitles for better understanding.
         </p>
       </div>
